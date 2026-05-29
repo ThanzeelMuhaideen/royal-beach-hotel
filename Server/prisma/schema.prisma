@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+
+}
+
+model Guest {
+  id               Int                @id @default(autoincrement())
+  fullName         String
+  email            String             @unique
+  phone            String?
+  guestType        String             @default("new")
+  reservations     Reservation[]
+  eventInquiries   EventInquiry[]
+  createdAt        DateTime           @default(now())
+}
+
+model Reservation {
+  id               Int      @id @default(autoincrement())
+  guestId          Int
+  guest            Guest    @relation(fields: [guestId], references: [id])
+  checkInDate      DateTime
+  checkOutDate     DateTime
+  adultsCount      Int
+  childrenCount    Int
+  roomType         String
+  specialRequests  String?
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
+}
+
+model EventInquiry {
+  id               Int      @id @default(autoincrement())
+  guestId          Int
+  guest            Guest    @relation(fields: [guestId], references: [id])
+  eventType        String
+  eventDate        DateTime
+  guestsExpected   Int
+  preferredVenue   String
+  eventDetails     String
+  status           String   @default("new")
+  createdAt        DateTime @default(now())
+}
+
+model GeneralInquiry {
+  id               Int      @id @default(autoincrement())
+  name             String
+  email            String
+  phone            String?
+  subject          String
+  message          String
+  createdAt        DateTime @default(now())
+}
+
