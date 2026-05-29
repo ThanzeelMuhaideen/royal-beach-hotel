@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
         </div>
         <div className="copyright">
-            <p>&copy; 2024 Royal Beach Hotels and Spa. All Rights Reserved.</p>
+            <p>&copy; 2026 Royal Beach Hotels and Spa. All Rights Reserved.</p>
         </div>
     </footer>
   );

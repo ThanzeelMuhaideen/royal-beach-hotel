@@ -38,7 +38,7 @@ const Contact = () => {
     };
     
     try {
-      await axios.post('http://localhost:5000/api/general-inquiry', payload);
+      await axios.post('https://royal-beach-hotel-api.vercel.app/api/general-inquiry', payload);
       alert('Your message has been sent successfully!');
       e.target.reset();
     } catch (error) {
