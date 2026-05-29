@@ -205,6 +205,8 @@ app.listen(PORT, () => {
     console.log(`Backend Server is running on http://localhost:${PORT}`);
 });
 
+module.exports = app; // Exporting for testing purposes
+
 // Graceful shutdown
 process.on('SIGINT', async () => {
     console.log('\nGracefully shutting down...');
