@@ -27,7 +27,7 @@ const AdminDashboard = () => {
 
   const fetchInquiries = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/general-inquiry');
+      const res = await fetch('https://royal-beach-hotel-api.vercel.app/api/general-inquiry');
       const data = await res.json();
       setInquiries(data);
     } catch (error) {
@@ -47,7 +47,7 @@ const AdminDashboard = () => {
 
   const handleDeleteInquiry = async (id) => {
     if (window.confirm("Are you sure you want to delete this message?")) {
-      await fetch(`http://localhost:5000/api/general-inquiry/${id}`, { method: 'DELETE' });
+      await fetch(`https://royal-beach-hotel-api.vercel.app/api/general-inquiry/${id}`, { method: 'DELETE' });
       fetchInquiries();
     }
   };
